@@ -1,0 +1,56 @@
+http://localhost:8080/auth/login=post
+//sending raw json data
+{
+    "email": "harse",
+    "password":"abc"
+}
+//here we get the tokens which we add in requset header to acess apis methods
+{"jwtToken":"eyJhbGciOiJIUzUxMiJ9.
+            eyJzdWIiOiJoYXJzZSIsImlhdCI6MTcwNTU5ODUwOCwiZXhwIjoxNzA1NjE2NTA4fQ
+             .oNmiBJZQM1yDAFxrNLfTgS4smdim_rzPBvevZcZYHArZdtWXkBDyD0ZU_lwmVhZZLvIBBAgs6DbOwnNXX5Q6Tg
+               ","username":"harse"}
+====================================================================================================
+//post request
+http://localhost:8080/auth/login
+//sending raw json data
+{
+    "email": "durgesh",
+    "password":"abc"
+}
+{
+    "jwtToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkdXJnZXNoIiwiaWF0IjoxNzA1NTk4Nzk3LCJleHAiOjE3MDU2MTY3OTd9.VtFsdQ1CthOc6OeKsHADgMJAEt_tQYe6ssbedqT9oOsBRAZbPxzOhmX2P_75DbZ_Acz6m3SdhSVrzqS3A5qbEQ",
+    "username": "durgesh"
+}
+//here we get the tokens which we add in requset header to acess apis methods
+====================================================================================================================================================================
+//Sending get request with tokens in the header
+get=http://localhost:8080/home/user
+//in Header
+key=Authorization value=Bearer eyJhbGciOiJIUzUxMiJ9
+                              .eyJzdWIiOiJkdXJnZXNoIiwiaWF0IjoxNzA1NTk4Nzk3LCJleHAiOjE3MDU2MTY3OTd9
+                               .VtFsdQ1CthOc6OeKsHADgMJAEt_tQYe6ssbedqT9oOsBRAZbPxzOhmX2P_75DbZ_Acz6m3SdhSVrzqS3A5qbEQ
+
+//output is 
+[
+    {
+        "userId": "a2ba7bb1-5fe7-4c58-80e3-027e86c9a887",
+        "name": "Durgest Tiwari",
+        "email": "durgesh@gmail.com"
+    },
+    {
+        "userId": "9038e21a-7a38-4dfd-b7bf-01bc3bc23221",
+        "name": "Harse Tiwari",
+        "email": "harse@gmail.com"
+    },
+    {
+        "userId": "dfa2784c-56b4-4a8d-b9fa-bae4feba487b",
+        "name": "Ankit Tiwari",
+        "email": "ankit@gmail.com"
+    },
+    {
+        "userId": "cbd35093-24e5-4fac-abd7-2acea106d17a",
+        "name": "Gautam Tiwari",
+        "email": "gautam@gmail.com"
+    }
+]
+==========================================================================================================================================================
